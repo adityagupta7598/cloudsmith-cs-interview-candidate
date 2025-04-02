@@ -1,1 +1,2 @@
 Just a file to trigger the workflow
+Triggering another workflow after adding variable
