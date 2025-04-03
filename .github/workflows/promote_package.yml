@@ -54,7 +54,7 @@ jobs:
           PACKAGE_DATA_PRODUCTION_READY=$(cloudsmith list packages ${{ env.CLOUDSMITH_NAMESPACE }}/${{ env.CLOUDSMITH_STAGING_REPO }} -F json)
           
           # Extract the identifier_perm for ready-for-production tag packages
-          IDENTIFIERS_PRODUCTION_READY=$(echo "$PACKAGE_DATA_PRODUCTION_READY" | jq -r '.data[] | select(.tags | index("ready-for-production")) | .identifier_perm')
+          IDENTIFIER_PRODUCTION_READY=$(echo "$PACKAGE_DATA_PRODUCTION_READY" | jq -r '.data[] | select(.tags | index("ready-for-production")) | .identifier_perm')
           
           if [ -z "$IDENTIFIER_PRODUCTION_READY" ] || [ "$IDENTIFIER_PRODUCTION_READY" = "null" ]; then
             echo "Failed to find package identifier"
