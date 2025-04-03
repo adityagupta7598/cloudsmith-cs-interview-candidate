@@ -3,12 +3,6 @@ name: Promote Python Package
 on:
   repository_dispatch:
     types: [cloudsmith-package-synchronized]
-  workflow_dispatch:
-    inputs:
-      package_version:
-        description: 'Package version to promote (e.g., 0.0.1)'
-        required: true
-        type: string
 
 env:
   CLOUDSMITH_NAMESPACE: ${{ vars.CLOUDSMITH_NAMESPACE }}
